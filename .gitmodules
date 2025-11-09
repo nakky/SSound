@@ -1,0 +1,7 @@
+
+[submodule "subprojects/SThread"]
+	path = subprojects/SThread
+	url = https://github.com/nakky/SThread.git
+[submodule "subprojects/S3DMath"]
+	path = subprojects/S3DMath
+	url = git@github.com:nakky/S3DMath.git
