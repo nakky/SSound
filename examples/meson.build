@@ -23,19 +23,13 @@ elif ['darwin'].contains(host_machine.system())
   deps += cocoa_dep
   iokit_dep = dependency('IOKit', required: true)
   deps += iokit_dep
+  audiotoolbox_dep = dependency('AudioToolbox', method: 'extraframework', required: true)
+  deps += audiotoolbox_dep
 
 elif ['linux'].contains(host_machine.system())
   alsa_dep = dependency('alsa', required: true)
   deps += alsa_dep
 endif
-
-installs = [
-  'assets/sample.wav',
-]
-install_data(
-  installs,
-  installs
-)
 
 executable(
   'example',

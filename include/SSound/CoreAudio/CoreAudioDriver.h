@@ -17,8 +17,8 @@
 
 #include "SSound/SoundCommon.h"
 
-#include "VS/Foundation/Lock.h"
-#include "VS/Foundation/QueueThread.h"
+#include "SThread/Lock.h"
+#include "SThread/QueueThread.h"
 
 #include <AudioToolbox/AudioToolbox.h>
 

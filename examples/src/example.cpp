@@ -5,8 +5,6 @@
 
 #include "SSound/SSound.h"
 
-#include <alsa/asoundlib.h>
-
 using namespace SSound;
 
 

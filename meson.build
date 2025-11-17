@@ -1,6 +1,6 @@
 project(
   'SSound',
-  'cpp',
+  ['cpp'],
   version: '0.1.0',
   default_options: [
     'cpp_std=c++20',
@@ -8,6 +8,10 @@ project(
   ],
   meson_version: '>=1.2.0',
 )
+
+if ['darwin'].contains(host_machine.system())
+  add_languages('objcpp')
+endif
 
 compiler = meson.get_compiler('cpp')
 compiler_id = compiler.get_id()
