@@ -16,8 +16,6 @@
 
 #include "SSound/SoundCommon.h"
 
-#include "S3DMath/Resource.h"
-
 #include <string>
 
 namespace SSound

@@ -1,7 +1,6 @@
 
 ssound_incs = [
   '../include',
-  '../subprojects/S3DMath/include',
   '../subprojects/SThread/include',
   ]
 
@@ -29,13 +28,6 @@ elif ['linux'].contains(host_machine.system())
   ssound_srcs += 'ALSA/ALSADriver.cpp'
 endif
 
-s3dmath_dep = dependency(
-  'S3DMath',
-  version: ['>= 0.1.0'],
-  fallback: ['S3DMath', 's3dmath_dep'],
-  default_options: ['default_library=static', 'examples=false'],
-)
-
 sthread_dep = dependency(
   'SThread',
   version: ['>= 0.1.0'],
@@ -44,7 +36,6 @@ sthread_dep = dependency(
 )
 
 deps = [
-  s3dmath_dep,
   sthread_dep,
 ]
 

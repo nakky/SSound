@@ -2,7 +2,6 @@ cmake = import('cmake')
 
 inc = include_directories([
   '../include',
-  '../subprojects/S3DMath/include',
   '../subprojects/SThread/include',
   ])
 
