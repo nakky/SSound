@@ -24,21 +24,17 @@ namespace SSound{
 	
 	void AudioFile::load()
 	{
-		setLoadState(RESOURCELOAD_LOADING);
 		if(mIsCached) cache();
-		setLoadState(RESOURCELOAD_LOADED);
 	}
 	
 	void AudioFile::unload()
 	{
-		setLoadState(RESOURCELOAD_UNLOADING);
 		if(mIsCached) uncache();
-		setLoadState(RESOURCELOAD_UNLOADED);
 	}
 
 	void AudioFile::cache()
 	{
-		SoundFileDescriptor *descriptor = SoundFactory::createFileDescriptor(mFilePath, mExtension, mInput);
+		SoundFileDescriptor *descriptor = SoundFactory::createFileDescriptor(mFilePath, mExtension);
 
 		mFormat = descriptor->getDataFormat();
 		mDataHead = new char[mFormat.mDataSize];

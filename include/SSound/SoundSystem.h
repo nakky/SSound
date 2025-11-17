@@ -28,6 +28,8 @@
 #include <SLES/OpenSLES.h>
 #endif // PLAYERAPI_OPENSLES
 
+#include <string>
+
 namespace SSound
 {
 

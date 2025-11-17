@@ -1,9 +1,10 @@
 project(
   'SSound',
-  ['cpp', 'objcpp'],
+  'cpp',
   version: '0.1.0',
   default_options: [
     'cpp_std=c++20',
+    'default_library=both',
   ],
   meson_version: '>=1.2.0',
 )
@@ -23,7 +24,6 @@ posix_common_args = [
   '-Wall', '-Wextra', '-Wpedantic', '-Wshadow', '-Wstrict-aliasing',
   '-Wstrict-overflow=5', '-Wcast-align',
   '-Wpointer-arith', '-Wcast-qual', '-Wold-style-cast',
-  '-w',
 ]
 if compiler_id == 'clang'
   cpp_args += posix_common_args + [

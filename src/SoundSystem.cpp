@@ -71,11 +71,10 @@ namespace SSound{
     AudioFile *SoundSystem::createAudioFile(
                                                         const std::string &filePath,
                                                         const std::string &ext,
-                                                        const bool cache,
-                                                        Foundation::Input *input
+                                                        const bool cache
                                                         )
     {        
-        AudioFile *file = new AudioFile(filePath, ext, cache, input);
+        AudioFile *file = new AudioFile(filePath, ext, cache);
         return file;
     }
 

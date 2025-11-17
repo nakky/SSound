@@ -24,9 +24,8 @@ namespace SSound{
 		@date   Oct 9, 2009
 	*/
 	/****************************************/
-	SoundObject::SoundObject(const AudioFile *file)
-		:Object(),
-		mAudioFile(file),
+	SoundObject::SoundObject(AudioFile *file)
+		: mAudioFile(file),
 		mFileDescriptor(NULL),
 		mState(SOUNDOBJECT_STOP),
 		mEffectorHead(NULL)

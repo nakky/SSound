@@ -18,8 +18,6 @@
 
 #include <string.h>
 
-#include "S3DMath/Resource.h"
-
 #include "SSound/SoundDriver.h"
 
 namespace SSound
@@ -52,7 +50,7 @@ namespace SSound
 		SoundObject();
 
 	public:
-		explicit SoundObject(const AudioFile *file);
+		explicit SoundObject(AudioFile *file);
 		virtual ~SoundObject() {}
 
 	public:

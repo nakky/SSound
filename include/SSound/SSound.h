@@ -19,5 +19,6 @@
 #include "SSound/SoundObject.h"
 #include "SSound/SoundFactory.h"
 #include "SSound/SoundSystem.h"
+#include "SSound/AudioFile.h"
 
 #endif // SSOUND_SSOUND_H

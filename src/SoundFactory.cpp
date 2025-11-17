@@ -4,6 +4,8 @@
 
 #include "SSound/WavFileCreator.h"
 
+#include "SSound/FileIO.h"
+
 #if defined OS_ANDROID
 #include "SSound/Android/AssetSystem.h"
 #endif
@@ -54,7 +56,7 @@ namespace SSound{
 	/****************************************/
 	void SoundFactory::registerCreator(const char *ext, SoundCreator *creator)
 	{
-		mCreatorArray.add(NamedCreator(ext, creator));
+		mCreatorArray.push_back(NamedCreator(ext, creator));
 	}
 
 	/****************************************/
@@ -70,13 +72,13 @@ namespace SSound{
 	/****************************************/
 	SoundCreator* SoundFactory::unregisterCreator(const char *ext)
 	{
-		int numRegist = (int)mCreatorArray.count();
+		int numRegist = (int)mCreatorArray.size();
 
 		for(int i = 0 ; i < numRegist ; i++){
 			if(!mCreatorArray[i].mName.compare(ext)){
 				std::vector<NamedCreator>::iterator ite = mCreatorArray.begin() + i;
 				SoundCreator *creator = mCreatorArray[i].mCreator;
-				mCreatorArray.remove(ite);
+				mCreatorArray.erase(ite);
 				return creator;
 			}
 		}
@@ -94,14 +96,14 @@ namespace SSound{
 	/****************************************/
 	void SoundFactory::deleteAllCreator()
 	{
-		int numRegist = (int)mCreatorArray.count();
+		int numRegist = (int)mCreatorArray.size();
 
 		for(int i = 0 ; i < numRegist ; i++){
-			stdd::vector<NamedCreator>::iterator ite = mCreatorArray.begin();
+			std::vector<NamedCreator>::iterator ite = mCreatorArray.begin();
 			if(ite == mCreatorArray.end())break;
 
 			SoundCreator *creator = mCreatorArray[0].mCreator;
-			mCreatorArray.remove(ite);
+			mCreatorArray.erase(ite);
 			creator->cleanup();
 			SAFE_DELETE(creator);
 		}
@@ -125,7 +127,7 @@ namespace SSound{
 	/****************************************/
 	SoundFileDescriptor *SoundFactory::createFileDescriptor(const std::string &path, const std::string &ext)
 	{
-		Input *input = null;
+		Input *input = NULL;
 
 		if(input == NULL){
 #if defined OS_ANDROID
@@ -135,7 +137,7 @@ namespace SSound{
 #endif
 		}
 
-		int numRegist = (int)mCreatorArray.count();
+		int numRegist = (int)mCreatorArray.size();
 
 		SoundFileDescriptor *descriptor = NULL;
 
@@ -171,11 +173,6 @@ namespace SSound{
 
 		creator = new WavFileCreator();
 		registerCreator(BASE_TEXT("wav"),  creator);
-		creator = NULL;
-		numCreator++;
-
-		creator = new OggFileCreator();
-		registerCreator(BASE_TEXT("ogg"),  creator);
 		creator = NULL;
 		numCreator++;
 

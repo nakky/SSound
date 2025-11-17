@@ -14,13 +14,12 @@
 #include "SSound/OpenSLES/OpenSLESDriver.h"
 #endif
 
+#include <iostream>
 
 namespace SSound{
 
 	bool SoundDriver::open()
 	{
-		Object::init();
-
 		unsigned int tmpMemorySize[STREAMING_NUM_BUFFER];
 
 		unsigned int memsum = STREAMING_BUFFER_SIZE;
@@ -53,8 +52,6 @@ namespace SSound{
 				mSoundBuffers[i] = NULL;
 			}
 		}
-
-		Object::cleanup();
 	}
 
 	bool SoundDriver::setRepeatTime(const unsigned int startMilliSec, const unsigned int endMilliSec)

@@ -35,7 +35,7 @@ namespace SSound
 		@date	Nov. 9, 2009
 		*/
 	/****************************************/
-	class SoundBuffer : public Object
+	class SoundBuffer 
 	{
 		friend class SoundDriver;
 		friend class SoundObject;
@@ -53,11 +53,13 @@ namespace SSound
 		}
 
 	public:
+
 		unsigned int getBufferSize() const { return mBufferSize; }
 
 		SoundDataFormat getDataFormat() const { return mFileDescriptor->getDataFormat(); }
 		int getChannelsPerSample() const { return mFileDescriptor->getChannelsPerSample(); }
 
+		virtual void init(){};
 		virtual void cleanup() { releaseBuffer(); }
 
 		bool allocateBuffer(const unsigned int bufferSize);

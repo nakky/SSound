@@ -16,6 +16,7 @@ ssound_srcs = [
   'SoundFactory.cpp',
   'SoundFileDescriptor.cpp',
   'SoundSystem.cpp',
+  'SoundObject.cpp',
   'WavFileCreator.cpp',
 ]
 

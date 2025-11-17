@@ -1,8 +1,9 @@
 cmake = import('cmake')
 
 inc = include_directories([
-  './include',
   '../include',
+  '../subprojects/S3DMath/include',
+  '../subprojects/SThread/include',
   ])
 
 srcs = [
@@ -11,7 +12,7 @@ srcs = [
 
 deps = [
   ssound_dep,
-  sthread_dep,
+  sthread_dep
 ]
 
 if ['windows'].contains(host_machine.system())
@@ -24,8 +25,17 @@ elif ['darwin'].contains(host_machine.system())
   deps += iokit_dep
 
 elif ['linux'].contains(host_machine.system())
-
+  alsa_dep = dependency('alsa', required: true)
+  deps += alsa_dep
 endif
+
+installs = [
+  'assets/sample.wav',
+]
+install_data(
+  installs,
+  installs
+)
 
 executable(
   'example',

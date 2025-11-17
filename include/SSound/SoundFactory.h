@@ -17,7 +17,10 @@
 #include "SSound/SoundCommon.h"
 #include "SSound/SoundObject.h"
 
+#include "SSound/IO.h"
+
 #include <vector>
+#include <string>
 
 namespace SSound
 {
@@ -48,19 +51,17 @@ namespace SSound
 		SoundFactory();
 
 	public:
-		class NamedCreator : public Object
+		class NamedCreator
 		{
 		public:
 			NamedCreator()
-				: Object(),
-				  mCreator(NULL)
+				: mCreator(NULL)
 			{
 			}
 
 		public:
 			NamedCreator(const char *name, SoundCreator *creator)
-				: Object(),
-				  mName(name),
+				: mName(name),
 				  mCreator(creator) {}
 
 			std::string mName;
@@ -104,6 +105,9 @@ namespace SSound
 
 	public:
 		virtual SoundFileDescriptor *createFileDescriptor(Input *input) = 0;
+
+		virtual void init(){};
+		virtual void cleanup(){};
 	};
 
 }; // namespace SSound

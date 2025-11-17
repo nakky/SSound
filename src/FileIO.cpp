@@ -1,6 +1,9 @@
 
 #include "SSound/FileIO.h"
 
+#include <iostream>
+#include <filesystem>
+
 namespace SSound{
 
 	/****************************************/
@@ -21,7 +24,7 @@ namespace SSound{
 		if(mStream.is_open())return FALSE;
 
 		mStream.open(mFilePath.data(), (std::ios::openmode)mode);
-
+		
 		return mStream.is_open();
 	}
 

@@ -16,8 +16,6 @@
 
 #include "SSound/SoundCommon.h"
 
-#include "VS/Foundation/ResourceDB.h"
-
 #include <string.h>
 
 namespace SSound

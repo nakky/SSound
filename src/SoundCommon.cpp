@@ -4,19 +4,17 @@
 #include "SSound/SoundSystem.h"
 
 
+namespace SSound {
 
-namespace VS{
-	namespace Sound {
+    void init()
+    {
+        SoundSystem::init();
+    }
+    
+    void cleanup()
+    {
+        SoundSystem::cleanup();
+    }
+    
+}; //namespace SSound
 
-        void init()
-        {
-            SoundSystem::init();
-        }
-        
-        void cleanup()
-        {
-            SoundSystem::cleanup();
-        }
-        
-	}; //namespace Sound
-}; //namespace VS

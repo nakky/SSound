@@ -34,12 +34,11 @@ namespace SSound
 		@date Dec. 10, 2008
 		*/
 	/****************************************/
-	class AudioFile : public S3DMath::Resource
+	class AudioFile
 	{
 	public:
 		AudioFile(const std::string &path, const std::string &ext, const bool cache)
-			: S3DMath::Resource(),
-			  mFilePath(path),
+			: mFilePath(path),
 			  mExtension(ext),
 			  mDataHead(NULL),
 			  mIsCached(cache),

@@ -19,6 +19,7 @@
 
 #include <stdio.h>
 
+#include <string>
 #include <fstream>
 
 #include "SSound/IO.h"
