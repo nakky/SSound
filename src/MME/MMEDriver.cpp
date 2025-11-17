@@ -4,6 +4,8 @@
 
 #ifdef PLAYERAPI_MME
 
+#include <iostream>
+
 namespace SSound{
 
 	bool MMESoundQueue::work(){
@@ -267,6 +269,8 @@ namespace SSound{
 			+ mSoundBuffers[bIndex]->getBufferSize()
 			/ mDataFormat.mChannelsPerSample / mDataFormat.mBytesPerSample;
 
+		//std::cout << "next:" << ( nextSample) << std::endl;
+
 		if(mIsRepeat &&  nextSample > mLoopEndPos){
 			unsigned int preSize = (mLoopEndPos - mFileDescriptor->getCurrentSample()) * mDataFormat.mChannelsPerSample * mDataFormat.mBytesPerSample;
 			startPos = 0;
@@ -288,11 +292,20 @@ namespace SSound{
 		}
 		mLock.unlock();
 
+		mLock.lock();
 		if (readDataSize == 0){
+			mLock.unlock();
 			stop();
+			mLock.lock();
 		}else if(readDataSize < mSoundBuffers[bIndex]->getBufferSize()){
 			mSoundBuffers[bIndex]->setEndPointFlag(true);
 		}
+		
+		int numFrames = readDataSize / mDataFormat.mChannelsPerSample / mDataFormat.mBytesPerSample;
+		
+		mLock.unlock();
+
+		if(numFrames == 0) return;
 
 		MMRESULT res = 0;
 		res = waveOutWrite(mWaveOut, mWaveHDR[bIndex], sizeof(WAVEHDR));

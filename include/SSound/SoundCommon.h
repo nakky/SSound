@@ -44,7 +44,7 @@ namespace SSound
     static const int STREAMING_NUM_BUFFER = 1;
     static const unsigned int STREAMING_BUFFER_SIZE = 2048;
 #else
-    static const int STREAMING_NUM_BUFFER = 3;
+    static const int STREAMING_NUM_BUFFER = 4;
     static const unsigned int STREAMING_BUFFER_SIZE = 44100;
 #endif
 

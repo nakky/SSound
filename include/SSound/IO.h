@@ -92,7 +92,9 @@ namespace SSound{
         
         virtual bool peek(unsigned char &c) = 0;
         
-        virtual bool end() = 0;
+        virtual void clear() = 0;
+
+        virtual bool eof() = 0;
 
     protected:
         int mOpenMode;
@@ -131,7 +133,9 @@ namespace SSound{
         
         virtual bool peek(unsigned char &c) = 0;
         
-        virtual bool end() = 0;
+        virtual void clear() = 0;
+
+        virtual bool eof() = 0;
     };
     
     

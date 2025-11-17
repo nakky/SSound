@@ -92,8 +92,10 @@ namespace SSound{
 		FORCE_INLINE virtual size_t tellPut();
 
 		FORCE_INLINE virtual bool peek(unsigned char &c);
+		
+		FORCE_INLINE virtual void clear();
 
-		FORCE_INLINE virtual bool end();
+		FORCE_INLINE virtual bool eof();
 		
 	protected:
 		std::string mFilePath;		//<! Forcused file path
@@ -141,7 +143,9 @@ namespace SSound{
 		
 		FORCE_INLINE virtual bool peek(unsigned char &c){return mIO.peek(c);}
 		
-		FORCE_INLINE virtual bool end(){return mIO.end();}
+		FORCE_INLINE virtual void clear(){mIO.clear();}
+
+		FORCE_INLINE virtual bool eof(){return mIO.eof();}
 		
 	protected:
 		FileIO mIO;

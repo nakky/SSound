@@ -35,7 +35,7 @@ namespace SSound{
 	/****************************************/
 	FORCE_INLINE size_t FileIO::read(void *buffer, const size_t size)
 	{
-		if(mStream.eof())return false;
+		if(mStream.eof())return 0;
 		
 		mStream.read((char*)buffer, size);
 
@@ -299,12 +299,12 @@ namespace SSound{
 	
 	FORCE_INLINE size_t FileIO::tellGet()
 	{
-		return (int)mStream.tellg();
+		return (size_t)mStream.tellg();
 	}
 	
 	FORCE_INLINE size_t FileIO::tellPut()
 	{
-		return (int)mStream.tellg();
+		return (size_t)mStream.tellp();
 	}
 
 	
@@ -314,7 +314,12 @@ namespace SSound{
 		return true;
 	}
 
-	FORCE_INLINE bool FileIO::end()
+	FORCE_INLINE void FileIO::clear()
+	{
+		mStream.clear();
+	}
+
+	FORCE_INLINE bool FileIO::eof()
 	{
 		return mStream.eof();
 	}

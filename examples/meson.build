@@ -15,7 +15,8 @@ deps = [
 ]
 
 if ['windows'].contains(host_machine.system())
-
+  winmm_lib = compiler.find_library('winmm', required: true)
+  deps += winmm_lib
 elif ['darwin'].contains(host_machine.system())
   
   cocoa_dep = dependency('cocoa', required: true)
