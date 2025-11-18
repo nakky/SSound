@@ -124,7 +124,6 @@ namespace SSound{
 		int mNumFrames;
 
 		bool mIsMmapAvailable;
-		struct pollfd *mUfds;
 
 		snd_pcm_state_t mPreviousState;
 

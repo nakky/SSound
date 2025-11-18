@@ -90,8 +90,6 @@ namespace SSound
 
 		mLock.unlock();
 
-		SAFE_DELETE_ARRAY(mUfds);
-
 		for (int i = 0; i < STREAMING_NUM_BUFFER; i++)
 		{
 			SAFE_DELETE_ARRAY(mBuffer[i]);
