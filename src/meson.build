@@ -5,7 +5,6 @@ ssound_incs = [
   ]
 
 ssound_srcs = [
-  'Common.cpp',
   'AudioFile.cpp',
   'FileIO.cpp',
   'SoundCommon.cpp',

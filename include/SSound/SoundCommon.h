@@ -14,7 +14,7 @@
 #ifndef SSOUND_SOUNDCOMMON_H
 #define SSOUND_SOUNDCOMMON_H
 
-#include "SSound/Common.h"
+#include "SThread/Common.h"
 
 #if defined OS_WINDOWS
 
