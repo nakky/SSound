@@ -42,7 +42,8 @@ namespace SSound {
 	bool WavFileDescriptor::seek(unsigned int pos)
 	{
 		long diff = ((long)pos - (long)mCurrentSample) * (long)mDataFormat.mChannelsPerSample * (long)mDataFormat.mBytesPerSample;
-		mInput->seek(diff, std::ios::cur);
+		long p = mInput->tell() + diff;
+		mInput->seek(p, std::ios::beg);
 		mCurrentSample = pos;
 		return TRUE;
 	}

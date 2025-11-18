@@ -84,8 +84,8 @@ namespace SSound{
 
 		waveformat.nChannels = mDataFormat.mChannelsPerSample;
 		waveformat.nSamplesPerSec = mDataFormat.mSampleRate;
-		waveformat.wBitsPerSample = 16;
-		waveformat.nBlockAlign = waveformat.nChannels * waveformat.wBitsPerSample / 8;
+		waveformat.wBitsPerSample = mDataFormat.mBytesPerSample * 8;
+		waveformat.nBlockAlign = waveformat.nChannels * mDataFormat.mBytesPerSample;
 		waveformat.nAvgBytesPerSec =  waveformat.nSamplesPerSec * waveformat.nBlockAlign;
 		waveformat.cbSize = 0;
 

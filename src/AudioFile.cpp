@@ -45,6 +45,8 @@ namespace SSound{
 
 		descriptor->close();
 		SAFE_DELETE(descriptor);
+
+		mIsCached = true;
 	}
 	
 	void AudioFile::uncache()
