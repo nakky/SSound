@@ -13,7 +13,7 @@ int main(void)
 {
     SSound::init();
 
-    AudioFile *file = SoundSystem::createAudioFile(std::string("./assets/sample.wav"), std::string("wav"));
+    AudioFile *file = SoundSystem::createAudioFile(std::string("./examples/sample.wav"), std::string("wav"));
     file->init();
     //file->cache();
 

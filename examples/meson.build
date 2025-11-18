@@ -31,6 +31,11 @@ elif ['linux'].contains(host_machine.system())
   deps += alsa_dep
 endif
 
+
+fs = import('fs')
+fs.copyfile('assets/sample.wav')
+
+
 executable(
   'example',
   srcs,
